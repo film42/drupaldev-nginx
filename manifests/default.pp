@@ -126,3 +126,9 @@ package { 'compass':
   ensure => installed,
   require => Package[[rubygems]]
 }
+
+include solr
+
+class { solr:
+  cores => [ 'example' ]
+}
