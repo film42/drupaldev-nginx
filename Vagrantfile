@@ -12,6 +12,17 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--memory", 2048]
   end
 
+  config.vm.provider :digital_ocean do |provider, override|
+    override.ssh.private_key_path = '~/.ssh/id_rsa'
+    override.vm.box = 'digital_ocean'
+    override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+
+    provider.client_id = 'YOUR CLIENT ID'
+    provider.api_key = 'YOUR API KEY'
+    provider.region = 'Amsterdam'
+    provider.size = '2GB'
+  end
+
   nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
   config.vm.synced_folder "./sites", "/var/www", id: "vagrant-root" , :nfs => nfs_setting
   config.vm.provision :shell, :inline => "sudo apt-get update"
