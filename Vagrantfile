@@ -22,8 +22,6 @@ Vagrant.configure("2") do |config|
     provider.region = 'Amsterdam 1'
     provider.size = '2GB'
     provider.ca_path = "CURL-CA-CERT PATH GOES HERE"
-
-    config.vm.provision :shell, :inline => "sudo apt-get update && sudo apt-get install puppet -y"
   end
 
   nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
