@@ -18,8 +18,9 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 2. `cd drupaldev-nginx`
 3. `mkdir sites`
 4. `cp manifests/example.pp manifests/devsites.pp`
-5. amend manifests/devsites.pp as required to desired server/virtualhost name and db details
-6. `vagrant up`
+5. Amend manifests/devsites.pp as required to desired server/virtualhost name and db details
+6. `librarian-puppet install`
+7. `vagrant up`
 
 #Usage - Digital Ocean
 1. Install https://github.com/smdahlen/vagrant-digitalocean
@@ -32,3 +33,8 @@ Modified vagrant config from puphpet. Supports Drupal 6/7/8. Built in Drush and 
 * Default port 33.33.33.10
 * Sites built as *.drupal.dev (use dnsmasq)
 * Ubuntu 12.04
+
+#Dependencies
+* Vagrant - http://www.vagrantup.com/
+* VirtualBox - https://www.virtualbox.org/
+* Librarian Puppet - http://librarian-puppet.com/
