@@ -17,10 +17,13 @@ Vagrant.configure("2") do |config|
     override.vm.box = 'digital_ocean'
     override.vm.box_url = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
 
-    provider.client_id = 'YOUR CLIENT ID'
-    provider.api_key = 'YOUR API KEY'
-    provider.region = 'Amsterdam'
+    provider.client_id = 'CLIENT KEY HERE'
+    provider.api_key = 'API KEY HERE'
+    provider.region = 'Amsterdam 1'
     provider.size = '2GB'
+    provider.ca_path = "CURL-CA-CERT PATH GOES HERE"
+
+    config.vm.provision :shell, :inline => "sudo apt-get update && sudo apt-get install puppet -y"
   end
 
   nfs_setting = RUBY_PLATFORM =~ /darwin/ || RUBY_PLATFORM =~ /linux/
